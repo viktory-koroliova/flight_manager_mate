@@ -40,3 +40,18 @@ class Route(models.Model):
     departure_airport = models.CharField(max_length=255)
     arrival_airport = models.CharField(max_length=255)
     duration = models.CharField(max_length=63)
+
+
+class Flight(models.Model):
+    number = models.CharField(max_length=255)
+    departure = models.DateTimeField()
+    route = models.ForeignKey(to=Route, on_delete=models.CASCADE)
+    aircraft = models.ForeignKey(to=Aircraft, on_delete=models.CASCADE)
+    crew = models.ManyToManyField(to=CrewMember, related_name="flights")
+    is_delayed = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(
+            fields=["number", "departure"],
+            name="unique_flight"
+        )]
