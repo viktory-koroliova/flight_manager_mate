@@ -31,3 +31,8 @@ class Aircraft(models.Model):
         choices=AIRCRAFT_WTC_CHOICES
     )
     design_bureau = models.ForeignKey(to=DesignBureau, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = "aircraft"
+
+
