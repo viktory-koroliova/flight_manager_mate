@@ -36,3 +36,7 @@ class Aircraft(models.Model):
         verbose_name_plural = "aircraft"
 
 
+class Route(models.Model):
+    departure_airport = models.CharField(max_length=255)
+    arrival_airport = models.CharField(max_length=255)
+    duration = models.CharField(max_length=63)
