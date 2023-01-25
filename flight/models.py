@@ -16,3 +16,18 @@ class CrewMember(AbstractUser):
     last_name = models.CharField(max_length=255)
     license_number = models.CharField(max_length=63)
     position = models.ForeignKey(to=Position, on_delete=models.CASCADE, null=True, related_name="crew")
+
+
+class Aircraft(models.Model):
+    AIRCRAFT_WTC_CHOICES = (
+        ("L", "Light"),
+        ("M", "Medium"),
+        ("H", "Heavy")
+    )
+    type = models.CharField(max_length=63)
+    age = models.IntegerField()
+    wake_turbulence_category = models.CharField(
+        max_length=1,
+        choices=AIRCRAFT_WTC_CHOICES
+    )
+    design_bureau = models.ForeignKey(to=DesignBureau, on_delete=models.CASCADE)
