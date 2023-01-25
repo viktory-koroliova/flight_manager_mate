@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for member in position.crew.all %}
+    <p>{{ member.first_name }} {{ member.last_name }}</p>
+
+  {% endfor %}
+
+{% endblock %}

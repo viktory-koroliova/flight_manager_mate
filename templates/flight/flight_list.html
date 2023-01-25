@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for flight in flight_list %}
+    <li>Flight number: {{ flight.number }}</li>
+    <li>Date: {{ flight.departure  }}</li>
+    <li>Route: {{ flight.route.departure_airport }} - {{ flight.route.arrival_airport }} ({{ flight.route.duration }})</li>
+    <li>Plane: {{ flight.aircraft.type }} - {{ flight.aircraft.age }} years</li>
+    <li>{{ flight.crew.all }}</li>
+{#    <li>{{  }}</li>#}
+
+
+  {% endfor %}
+
+{% endblock %}
