@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for flight in flight_list %}
-    <hr>
-    <li>Flight number: {{ flight.number }}</li>
-    <li>Date: {{ flight.departure  }}</li>
-    <li>Route: {{ flight.route.departure_airport }} - {{ flight.route.arrival_airport }} ({{ flight.route.duration }})</li>
-    <li>Plane: {{ flight.aircraft.type }} - {{ flight.aircraft.age }} years</li>
+  <h1>
+    Timetable
+    <a href="{% url 'flight:flight-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+      Add new flight
+    </a>
+  </h1>
+  {% if flight_list %}
 
-{#    <li>{{  }}</li>#}
+    <table class="table">
+      <tr>
+        <th>Flight number</th>
+        <th>Departure time</th>
+        <th>Itinerary</th>
+        <th>{# Delay_status #}</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
 
-
-  {% endfor %}
+      {% for flight in flight_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:flight-detail' pk=flight.id%}">{{ flight.number }}</a>
+          </td>
+          <td>{{ flight.departure|date:'d M Y, H:i' }}</td>
+          <td>
+            <a href="{% url 'flight:route-detail' pk=flight.route.id%}">{{ flight.route }}</a>
+          </td>
+          <td>{% if flight.is_delayed %} <span style="color: red">Delayed</span>{% endif %}</td>
+          <td>
+            <a href="{% url 'flight:flight-update' pk=flight.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:flight-delete' pk=flight.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is no one hired yet.</p>
+  {% endif %}
 
 {% endblock %}
