@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm, FlightSearchForm, \
-    CrewMemberSearchForm
+    CrewMemberSearchForm, RouteSearchForm
 from flight.models import (
     Aircraft,
     CrewMember,
@@ -156,6 +156,21 @@ class AircraftDeleteView(LoginRequiredMixin, generic.DeleteView):
 class RouteListView(LoginRequiredMixin, generic.ListView):
     model = Route
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(RouteListView, self).get_context_data(**kwargs)
+        departure_airport = self.request.GET.get("departure_airport", "")
+        context["search_form"] = RouteSearchForm(
+            initial={"departure_airport": departure_airport}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Route.objects.all()
+        form = RouteSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(departure_airport__icontains=form.cleaned_data["departure_airport"])
+        return queryset
 
 
 class RouteDetailView(LoginRequiredMixin, generic.DetailView):
