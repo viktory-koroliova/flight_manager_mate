@@ -1,8 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for design_bureau in design_bureau_list %}
-    <p>{{ design_bureau.name }}</p>
-  {% endfor %}
+
+  {% if designbureau_list %}
+    <h1>
+      Our fleet is designed by:
+      <a href="{% url 'flight:design-bureau-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+        Create
+      </a>
+    </h1>
+
+    <table class="table">
+      <tr>
+        <th>Design bureau</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for bureau in designbureau_list %}
+        <tr>
+          <td>{{ bureau.name }}</td>
+          <td>
+            <a href="{% url 'flight:design-bureau-update' pk=bureau.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:design-bureau-delete' pk=bureau.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is no bureau yet.</p>
+  {% endif %}
 
 {% endblock %}
