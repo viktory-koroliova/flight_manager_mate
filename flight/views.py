@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm, FlightSearchForm
+from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm, FlightSearchForm, \
+    CrewMemberSearchForm
 from flight.models import (
     Aircraft,
     CrewMember,
@@ -82,6 +83,22 @@ class CrewMemberListView(LoginRequiredMixin, generic.ListView):
     model = CrewMember
     template_name = "flight/crew_list.html"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CrewMemberListView, self).get_context_data(**kwargs)
+        last_name = self.request.GET.get("last_name", "")
+        context["search_form"] = CrewMemberSearchForm(
+            initial={"last_name": last_name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = CrewMember.objects.prefetch_related("flights")
+        form = CrewMemberSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(last_name__icontains=form.cleaned_data["last_name"])
+        return queryset
 
 
 class CrewMemberDetailView(LoginRequiredMixin, generic.DetailView):
