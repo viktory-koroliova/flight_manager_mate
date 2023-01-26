@@ -1,16 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for crew in crewmember_list %}
-    <hr>
-    <li>Flight number: {{ flight.number }}</li>
-    <li>Date: {{ flight.departure  }}</li>
-    <li>Route: {{ flight.route.departure_airport }} - {{ flight.route.arrival_airport }} ({{ flight.route.duration }})</li>
-    <li>Plane: {{ flight.aircraft.type }} - {{ flight.aircraft.age }} years</li>
+  <h1>
+    Our fleet
+    <a href="{% url 'flight:aircraft-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+      Create
+    </a>
+  </h1>
+  {% if aircraft_list %}
 
-{#    <li>{{  }}</li>#}
+    <table class="table">
+      <tr>
+        <th>Type</th>
+        <th>Design bureau</th>
+        <th>Age</th>
+        <th>Wake turbulence category</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
 
-
-  {% endfor %}
+      {% for aircraft in aircraft_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:aircraft-detail' pk=aircraft.id%}">{{ aircraft.type }}</a>
+          </td>
+          <td>{{ aircraft.design_bureau }}</td>
+          <td>{{ aircraft.age }}</td>
+          <td>{{ aircraft.wake_turbulence_category }}</td>
+          <td>
+            <a href="{% url 'flight:aircraft-update' pk=aircraft.id %}" class="btn btn-secondary link-to-page">
+              Update
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'flight:aircraft-delete' pk=aircraft.id %}" class="btn btn-danger link-to-page">
+              Delete
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>Temporary empty here</p>
+  {% endif %}
 
 {% endblock %}
