@@ -1,8 +1,9 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import RegexValidator, MaxLengthValidator
 
-from flight.models import CrewMember
+from flight.models import CrewMember, Flight
 
 
 def validate_license():
@@ -37,3 +38,16 @@ class CrewMemberUpdateForm(forms.ModelForm):
     class Meta:
         model = CrewMember
         fields = ("license_number", "position")
+
+
+class FlightForm(forms.ModelForm):
+
+    crew = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
+
+    class Meta:
+        model = Flight
+        fields = "__all__"
