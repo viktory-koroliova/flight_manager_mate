@@ -51,3 +51,12 @@ class FlightForm(forms.ModelForm):
     class Meta:
         model = Flight
         fields = "__all__"
+
+
+class FlightSearchForm(forms.Form):
+    number = forms.CharField(
+        max_length=255,
+        required=False,
+        label=False,
+        widget=forms.TextInput(attrs={"placeholder": "Search by flight number"})
+    )
