@@ -8,13 +8,19 @@ class Position(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ["title"]
+
 
 class DesignBureau(models.Model):
     name = models.CharField(max_length=255)
     headquarter = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.name} (based in {self.headquarter})"
+        return f"{self.name}"
+
+    class Meta:
+        ordering = ["name"]
 
 
 class CrewMember(AbstractUser):
@@ -46,6 +52,7 @@ class Aircraft(models.Model):
 
     class Meta:
         verbose_name_plural = "aircraft"
+        ordering = ["type"]
 
 
 class Route(models.Model):
@@ -54,7 +61,10 @@ class Route(models.Model):
     duration = models.DurationField()
 
     def __str__(self):
-        return f"{self.departure_airport} - {self.arrival_airport} ({self.duration})"
+        return f"{self.departure_airport} - {self.arrival_airport}"
+
+    class Meta:
+        ordering = ["departure_airport"]
 
 
 class Flight(models.Model):
@@ -73,3 +83,4 @@ class Flight(models.Model):
             fields=["number", "departure"],
             name="unique_flight"
         )]
+        ordering = ["departure"]
