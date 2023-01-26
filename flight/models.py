@@ -39,7 +39,7 @@ class Aircraft(models.Model):
 class Route(models.Model):
     departure_airport = models.CharField(max_length=255)
     arrival_airport = models.CharField(max_length=255)
-    duration = models.CharField(max_length=63)
+    duration = models.DurationField()
 
 
 class Flight(models.Model):
