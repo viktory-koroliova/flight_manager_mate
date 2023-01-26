@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm
+from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm, FlightSearchForm
 from flight.models import (
     Aircraft,
     CrewMember,
@@ -165,6 +165,22 @@ class RouteDeleteView(LoginRequiredMixin, generic.DeleteView):
 class FlightListView(LoginRequiredMixin, generic.ListView):
     model = Flight
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(FlightListView, self).get_context_data(**kwargs)
+        number = self.request.GET.get("number", "")
+        context["search_form"] = FlightSearchForm(
+            initial={"number": number}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Flight.objects.select_related("aircraft")
+        form = FlightSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(number__icontains=form.cleaned_data["number"])
+        return queryset
 
 
 class FlightDetailView(LoginRequiredMixin, generic.DetailView):
