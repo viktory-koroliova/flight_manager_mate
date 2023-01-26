@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from flight.forms import CrewMemberCreationForm
+from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm
 from flight.models import (
     Aircraft,
     CrewMember,
@@ -99,9 +99,9 @@ class CrewMemberCreateView(LoginRequiredMixin, generic.CreateView):
 
 class CrewMemberUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = CrewMember
-    fields = "__all__"
     template_name = "flight/crew_form.html"
     success_url = reverse_lazy("flight:crew-list")
+    form_class = CrewMemberUpdateForm
 
 
 class CrewMemberDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -173,14 +173,14 @@ class FlightDetailView(LoginRequiredMixin, generic.DetailView):
 
 class FlightCreateView(LoginRequiredMixin, generic.CreateView):
     model = Flight
-    fields = "__all__"
     success_url = reverse_lazy("flight:flight-list")
+    form_class = FlightForm
 
 
 class FlightUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Flight
-    fields = "__all__"
     success_url = reverse_lazy("flight:flight-list")
+    form_class = FlightForm
 
 
 class FlightDeleteView(LoginRequiredMixin, generic.DeleteView):
