@@ -60,17 +60,20 @@ class DesignBureauListView(LoginRequiredMixin, generic.ListView):
 class DesignBureauCreateView(LoginRequiredMixin, generic.CreateView):
     model = DesignBureau
     fields = "__all__"
+    template_name = "flight/design_bureau_form.html"
     success_url = reverse_lazy("flight:design-bureau-list")
 
 
 class DesignBureauUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DesignBureau
     fields = "__all__"
+    template_name = "flight/design_bureau_form.html"
     success_url = reverse_lazy("flight:design-bureau-list")
 
 
 class DesignBureauDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = DesignBureau
+    template_name = "flight/design_bureau_confirm_delete.html"
     success_url = reverse_lazy("flight:design-bureau-list")
 
 
@@ -82,22 +85,27 @@ class CrewMemberListView(LoginRequiredMixin, generic.ListView):
 
 class CrewMemberDetailView(LoginRequiredMixin, generic.DetailView):
     model = CrewMember
+    template_name = "flight/crew_detail.html"
+    queryset = CrewMember.objects.prefetch_related("flights__route")
 
 
 class CrewMemberCreateView(LoginRequiredMixin, generic.CreateView):
     model = CrewMember
     fields = "__all__"
+    template_name = "flight/crew_form.html"
     success_url = reverse_lazy("flight:crew-list")
 
 
 class CrewMemberUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = CrewMember
     fields = "__all__"
+    template_name = "flight/crew_form.html"
     success_url = reverse_lazy("flight:crew-list")
 
 
 class CrewMemberDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = CrewMember
+    template_name = "flight/crew_confirm_delete.html"
     success_url = reverse_lazy("flight:crew-list")
 
 
