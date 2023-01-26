@@ -69,3 +69,12 @@ class FlightSearchForm(forms.Form):
         label=False,
         widget=forms.TextInput(attrs={"placeholder": "Search by flight number"})
     )
+
+
+class RouteSearchForm(forms.Form):
+    departure_airport = forms.CharField(
+        max_length=255,
+        required=False,
+        label=False,
+        widget=forms.TextInput(attrs={"placeholder": "Search by departure airport"})
+    )
