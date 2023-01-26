@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "flight",
     "crispy_forms",
+    "flight.templatetags",
 ]
 
 MIDDLEWARE = [
