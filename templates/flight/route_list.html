@@ -1,16 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for crew in crewmember_list %}
-    <hr>
-    <li>Flight number: {{ flight.number }}</li>
-    <li>Date: {{ flight.departure  }}</li>
-    <li>Route: {{ flight.route.departure_airport }} - {{ flight.route.arrival_airport }} ({{ flight.route.duration }})</li>
-    <li>Plane: {{ flight.aircraft.type }} - {{ flight.aircraft.age }} years</li>
+  <h1>
+    Our FROMs and TOs
+    <a href="{% url 'flight:route-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+      Add new route
+    </a>
+  </h1>
+  <br>
 
-{#    <li>{{  }}</li>#}
+  {% if route_list %}
 
+    <table class="table">
+      <tr>
+        <th>Itinerary</th>
+        <th>Duration</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
 
-  {% endfor %}
+      {% for route in route_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:route-detail' pk=route.id%}">{{ route.departure_airport }} - {{ route.arrival_airport }}</a>
+          </td>
+          <td>{{ route.duration }}</td>
+          <td>
+            <a href="{% url 'flight:route-update' pk=route.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:route-delete' pk=route.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>We don't have any flight yet.</p>
+  {% endif %}
 
 {% endblock %}
