@@ -73,7 +73,7 @@ class Route(models.Model):
 class Flight(models.Model):
     number = models.CharField(max_length=255)
     departure = models.DateTimeField()
-    route = models.ForeignKey(to=Route, on_delete=models.CASCADE)
+    route = models.ForeignKey(to=Route, on_delete=models.CASCADE, related_name="flights")
     aircraft = models.ForeignKey(to=Aircraft, on_delete=models.CASCADE, related_name="flights")
     crew = models.ManyToManyField(to=CrewMember, related_name="flights")
     is_delayed = models.BooleanField(default=False)
