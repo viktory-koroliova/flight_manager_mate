@@ -5,10 +5,16 @@ from django.db import models
 class Position(models.Model):
     title = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
+
 
 class DesignBureau(models.Model):
     name = models.CharField(max_length=255)
     headquarter = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.name} (based in {self.headquarter})"
 
 
 class CrewMember(AbstractUser):
@@ -16,6 +22,9 @@ class CrewMember(AbstractUser):
     last_name = models.CharField(max_length=255)
     license_number = models.CharField(max_length=63)
     position = models.ForeignKey(to=Position, on_delete=models.CASCADE, null=True, related_name="crew")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Aircraft(models.Model):
@@ -32,6 +41,9 @@ class Aircraft(models.Model):
     )
     design_bureau = models.ForeignKey(to=DesignBureau, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.type
+
     class Meta:
         verbose_name_plural = "aircraft"
 
@@ -41,6 +53,9 @@ class Route(models.Model):
     arrival_airport = models.CharField(max_length=255)
     duration = models.DurationField()
 
+    def __str__(self):
+        return f"{self.departure_airport} - {self.arrival_airport} ({self.duration})"
+
 
 class Flight(models.Model):
     number = models.CharField(max_length=255)
@@ -49,6 +64,9 @@ class Flight(models.Model):
     aircraft = models.ForeignKey(to=Aircraft, on_delete=models.CASCADE)
     crew = models.ManyToManyField(to=CrewMember, related_name="flights")
     is_delayed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Flight {self.number} from {self.route.departure_airport} to {self.route.arrival_airport}"
 
     class Meta:
         constraints = [models.UniqueConstraint(
