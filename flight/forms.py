@@ -40,6 +40,15 @@ class CrewMemberUpdateForm(forms.ModelForm):
         fields = ("license_number", "position")
 
 
+class CrewMemberSearchForm(forms.Form):
+    last_name = forms.CharField(
+        max_length=255,
+        required=False,
+        label=False,
+        widget=forms.TextInput(attrs={"placeholder": "Search by last name"})
+    )
+
+
 class FlightForm(forms.ModelForm):
 
     crew = forms.ModelMultipleChoiceField(
