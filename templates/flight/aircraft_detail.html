@@ -2,16 +2,22 @@
 
 {% block content %}
   <h1>
-    {{ crewmember.first_name }} {{ crewmember.last_name }}
-    <a href="{% url 'flight:crew-update' pk=crewmember.id %}" class="btn btn-secondary link-to-page">
+    {{ aircraft.type }}
+    <a href="{% url 'flight:aircraft-update' pk=aircraft.id %}" class="btn btn-secondary link-to-page">
       Update
     </a>
-    <a href="{% url 'flight:crew-delete' pk=crewmember.id %}" class="btn btn-danger link-to-page">
+    <a href="{% url 'flight:aircraft-delete' pk=aircraft.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>
 
   </h1>
-  {% if crewmember.flights.all %}
+
+  <p><b>Designed by </b>{{ aircraft.design_bureau }}</p>
+  <p><b>Aircraft age: </b>{{ aircraft.age }}</p>
+  <p><b>WTC: </b>{{ aircraft.wake_turbulence_category }}</p>
+  <br>
+
+  {% if aircraft.flights.all %}
     <h3>Scheduled flights:</h3>
 
     <table class="table">
@@ -19,20 +25,30 @@
         <th>Departure time</th>
         <th>Itinerary</th>
         <th>Flight number</th>
-        <th></th>
-        <th></th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
       </tr>
 
-      {% for flight in crewmember.flights.all %}
+      {% for flight in aircraft.flights.all %}
         <tr>
           <td>{{ flight.departure|date:'d M Y, H:i' }}</td>
-          <td>{{ flight.route }}</td>
-          <td>{{ flight.number }}</td>
-          <td><a class="btn btn-secondary" href="{% url 'flight:flight-update' pk=flight.id%}">Update</a></td>
-          <td><a class="btn btn-danger" href="{% url 'flight:flight-delete' pk=flight.id%}">Delete</a></td>
+          <td>
+            <a href="{% url 'flight:route-detail' pk=flight.route.id%}">{{ flight.route }}</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:flight-detail' pk=flight.id%}">{{ flight.number }}</a>
+          </td>
+          <td>
+            <a class="btn btn-secondary" href="{% url 'flight:flight-update' pk=flight.id%}">Update</a>
+          </td>
+          <td>
+            <a class="btn btn-danger" href="{% url 'flight:flight-delete' pk=flight.id%}">Delete</a>
+          </td>
         </tr>
       {% endfor %}
     </table>
+    {% else %}
+    <p>No scheduled flight yet. </p>
   {% endif %}
 
 {% endblock %}
