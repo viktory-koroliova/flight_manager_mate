@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="custom-margin">
   <h1>
     {{ crewmember.first_name }} {{ crewmember.last_name }}
     <a href="{% url 'flight:crew-update' pk=crewmember.id %}" class="btn btn-secondary link-to-page">
@@ -10,11 +11,23 @@
       Delete
     </a>
   </h1>
-  <h5><b>Username: </b> {{ crewmember.username }}</h5>
-  <h5><b>Position: </b>{{ crewmember.position }}</h5>
-  <h5><b>License: </b>{{ crewmember.license_number }}</h5>
+
+  <table class="table" style="width: 40%">
+    <tr>
+      <td><b>Username</b></td>
+      <td>{{ crewmember.username }}</td>
+    </tr>
+    <tr>
+      <td><b>Position </b></td>
+      <td>{{ crewmember.position }}</td>
+    </tr>
+    <tr>
+      <td><b>License</b></td>
+      <td>{{ crewmember.license_number }}</td>
+    </tr>
+  </table>
   <br>
-  
+
   {% if crewmember.flights.all %}
     <h3>Scheduled flights:</h3>
 
@@ -40,5 +53,6 @@
     {% else %}
     <p>No scheduled flight yet. </p>
   {% endif %}
+  </div>
 
 {% endblock %}
