@@ -234,3 +234,15 @@ class FlightUpdateView(LoginRequiredMixin, generic.UpdateView):
 class FlightDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Flight
     success_url = reverse_lazy("flight:flight-list")
+
+
+def archive(request):
+    return render(request, "flight/archive.html")
+
+
+def contact(request):
+    return render(request, "flight/contact.html")
+
+
+def article(request):
+    return render(request, "flight/article.html")
