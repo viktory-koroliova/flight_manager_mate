@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="custom-margin">
   <h1>
-    {{ route.departure_airport }} {{ route.arrival_airport }}
+    {{ route.departure_airport }} - {{ route.arrival_airport }}
     <a href="{% url 'flight:route-update' pk=route.id %}" class="btn btn-secondary link-to-page">
       Update
     </a>
@@ -20,14 +21,14 @@
       <tr>
         <th>Departure time</th>
         <th>Flight number</th>
-        <th></th>
-        <th></th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
       </tr>
 
       {% for flight in route.flights.all %}
         <tr>
           <td>{{ flight.departure|date:'d M Y, H:i' }}</td>
-          <td>{{ flight.number }}</td>
+          <td><a href="{% url 'flight:flight-detail' pk=flight.id%}">{{ flight.number }}</a></td>
           <td><a class="btn btn-secondary" href="{% url 'flight:flight-update' pk=flight.id%}">Update</a></td>
           <td><a class="btn btn-danger" href="{% url 'flight:flight-delete' pk=flight.id%}">Delete</a></td>
         </tr>
@@ -35,4 +36,5 @@
     </table>
   {% endif %}
 
+  </div>
 {% endblock %}

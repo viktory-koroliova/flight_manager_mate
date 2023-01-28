@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="custom-margin">
   <h1>
     {{ aircraft.type }}
     <a href="{% url 'flight:aircraft-update' pk=aircraft.id %}" class="btn btn-secondary link-to-page">
@@ -51,4 +52,5 @@
     <p>No scheduled flight yet. </p>
   {% endif %}
 
+  </div>
 {% endblock %}

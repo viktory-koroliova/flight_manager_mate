@@ -2,7 +2,8 @@
 
 {% block content %}
 
-  {% if designbureau_list %}
+  <div class="custom-margin">
+    {% if designbureau_list %}
     <h1>
       Our fleet is designed by:
       <a href="{% url 'flight:design-bureau-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
@@ -32,5 +33,6 @@
     {% else %}
     <p>There is no bureau yet.</p>
   {% endif %}
+  </div>
 
 {% endblock %}

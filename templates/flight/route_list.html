@@ -2,6 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+  <div class="custom-margin">
   <h1>
     Our FROMs and TOs
     <a href="{% url 'flight:route-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
@@ -41,5 +42,6 @@
     {% else %}
     <p>We don't have any flight yet.</p>
   {% endif %}
+  </div>
 
 {% endblock %}

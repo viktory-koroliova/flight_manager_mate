@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="custom-margin">
   {% if position.crew.all%}
     <h1>Our crew as {{ position.title }}</h1><br>
 
@@ -27,5 +28,6 @@
     </table>
 
   {% endif %}
+  </div>
 
 {% endblock %}
