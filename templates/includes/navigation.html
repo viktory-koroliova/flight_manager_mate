@@ -13,8 +13,13 @@
 								<div class="dropdown-menu">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
-											<li><a href="#">Login</a></li>
-											<li><a href="#">Register</a></li>
+
+                      {% if user.is_authenticated %}
+                        <li><a href="{% url 'flight:crew-detail' pk=user.id%}">User: {{ user.username }}</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                      {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                      {% endif %} <br>
 										</ul>
 									</div>
 								</div>
