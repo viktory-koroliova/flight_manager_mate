@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="custom-margin">
   <h1>
     <b>Flight</b> {{ flight.number }}
     <a href="{% url 'flight:flight-update' pk=flight.id %}" class="btn btn-secondary link-to-page">
@@ -10,20 +11,42 @@
       Delete
     </a>
   </h1>
-  <h5><b>From</b> {{ flight.route.departure_airport }}</h5>
-  <h5><b>To</b> {{ flight.route.arrival_airport }}</h5>
-  <h5><b>Inflight time</b> {{ flight.route.duration }}</h5>
+
+  <table class="table" style="width: 40%">
+    <tr>
+      <td><b>From </b></td>
+      <td>{{ flight.route.departure_airport }}</td>
+    </tr>
+    <tr>
+      <td><b>To </b></td>
+      <td>{{ flight.route.arrival_airport }}</td>
+    </tr>
+    <tr>
+      <td><b>On</b></td>
+      <td><a href="{% url 'flight:aircraft-detail' pk=flight.aircraft.id %}">{{ flight.aircraft.type }}</a></td>
+    </tr>
+    <tr>
+      <td><b>Inflight time</b></td>
+      <td>{{ flight.route.duration }}</td>
+    </tr>
+  </table>
   <br>
 
   {% if flight.crew.all %}
-    <h3>Crew on this flight:</h3>
+    <h3>Crew on this flight:</h3><br>
+    <table class="table">
       {% for crew in flight.crew.all %}
-        <li>
-          <a href="{% url 'flight:crew-detail' pk=crew.id%}">{{ crew.first_name }} {{ crew.last_name }}</a> - {{ crew.position.title }}
-        </li>
+
+        <tr>
+          <td><a href="{% url 'flight:crew-detail' pk=crew.id%}">{{ crew.first_name }} {{ crew.last_name }}</a></td>
+          <td>{{ crew.position.title }}</td>
+        </tr>
+
       {% endfor %}
+    </table>
     {% else %}
     <p>Crew has not been set yet</p>
   {% endif %}
+  </div>
 
 {% endblock %}
