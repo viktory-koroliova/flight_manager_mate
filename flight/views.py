@@ -16,7 +16,6 @@ from flight.models import (
 )
 
 
-@login_required
 def index(request):
     context = {
         "aircraft": Aircraft.objects.all().values("type"),
@@ -244,5 +243,6 @@ def contact(request):
     return render(request, "flight/contact.html")
 
 
+@login_required
 def article(request):
     return render(request, "flight/article.html")
