@@ -18,7 +18,10 @@ from flight.views import (
     RouteUpdateView, RouteDeleteView,
     FlightListView,
     FlightDetailView, FlightCreateView,
-    FlightUpdateView, FlightDeleteView
+    FlightUpdateView, FlightDeleteView,
+    archive,
+    article,
+    contact,
 )
 
 
@@ -59,6 +62,10 @@ urlpatterns = [
     path("flights/create/", FlightCreateView.as_view(), name="flight-create"),
     path("flights/<int:pk>/update/", FlightUpdateView.as_view(), name="flight-update"),
     path("flights/<int:pk>/delete/", FlightDeleteView.as_view(), name="flight-delete"),
+
+    path("archive/", archive, name="archive"),
+    path("contact/", contact, name="contact"),
+    path("article/", article, name="article")
 
     ]
 
