@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_filters %}
+
+{% block title %}<title>iTravel | Log in</title>{% endblock %}
 
 {% block content %}
 
-{% if form.errors %}
+<div class="custom-margin custom-login">
+  {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-<h1>Login</h1>
+<h1>Welcome back, </h1>
 
 {% if next %}
   <p>Please login to see this page.</p>
@@ -20,5 +24,7 @@
   <input type="submit" value="Login" class="btn btn-primary" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
+
+</div>
 
 {% endblock %}
