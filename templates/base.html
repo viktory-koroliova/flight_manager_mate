@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Free Bootstrap Themes by Zerotheme dot com - Free Responsive Html5 Templates">
+  <meta name="author" content="https://www.Zerotheme.com">
+  <link rel="icon" href="{% static 'images/favicon.png' %}">
+
+  {% block title %}
+    <title>iTravel</title>
+  {% endblock %}
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+ <!-- Custom CSS -->
+   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+  <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+		<!-- jQuery and Modernizr-->
+	<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{% static 'js/html5shiv.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--Top-->
+	<header class="main-header">
+
+		<div class="container text-center">
+			<a class="site-branding" href="{% url 'flight:index' %}">
+				<h1 class="site-title">
+					iTravel
+				</h1>
+				<p class="site-description">
+					The flight manager you need
+				</p>
+			</a><!-- .site-branding -->
+		</div>
+
+		{% block navigation %}
+		  {% include "includes/navigation.html" %}
+		{% endblock %}
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+
+    {% block pagination %}
+      {% include "includes/pagination.html" %}
+    {% endblock %}
+  </main>
+
+  <footer class="footer">
+    {% include "includes/footer.html" %}
+  </footer>
+
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<script>
+		$(function() {
+			$('#menu-wrapper').height($("#menu").height());
+
+			$('#menu').affix({
+				offset: { top: $('#menu').offset().top }
+			});
+		});
+	</script>
+</body>
+</html>

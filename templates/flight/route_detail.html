@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="custom-margin">
+  <h1>
+    {{ route.departure_airport }} - {{ route.arrival_airport }}
+    <a href="{% url 'flight:route-update' pk=route.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+    <a href="{% url 'flight:route-delete' pk=route.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+  </h1>
+  <p><b>In-flight time </b>{{ route.duration }}</p>
+  <br>
+
+  {% if route.flights.all %}
+    <h3>Ongoing flights:</h3>
+
+    <table class="table">
+      <tr>
+        <th>Departure time</th>
+        <th>Flight number</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for flight in route.flights.all %}
+        <tr>
+          <td>{{ flight.departure|date:'d M Y, H:i' }}</td>
+          <td><a href="{% url 'flight:flight-detail' pk=flight.id%}">{{ flight.number }}</a></td>
+          <td><a class="btn btn-secondary" href="{% url 'flight:flight-update' pk=flight.id%}">Update</a></td>
+          <td><a class="btn btn-danger" href="{% url 'flight:flight-delete' pk=flight.id%}">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+
+  </div>
+{% endblock %}

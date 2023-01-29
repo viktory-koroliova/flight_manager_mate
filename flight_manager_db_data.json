@@ -1,0 +1,1137 @@
+[
+  {
+    "model": "flight.position",
+    "pk": 1,
+    "fields": {
+      "title": "Flight attendant"
+    }
+  },
+  {
+    "model": "flight.position",
+    "pk": 2,
+    "fields": {
+      "title": "First officer"
+    }
+  },
+  {
+    "model": "flight.position",
+    "pk": 3,
+    "fields": {
+      "title": "Captain"
+    }
+  },
+  {
+    "model": "flight.position",
+    "pk": 4,
+    "fields": {
+      "title": "Flight engineer"
+    }
+  },
+  {
+    "model": "flight.designbureau",
+    "pk": 1,
+    "fields": {
+      "name": "Airbus",
+      "headquarter": "Leiden"
+    }
+  },
+  {
+    "model": "flight.designbureau",
+    "pk": 2,
+    "fields": {
+      "name": "Boeing",
+      "headquarter": "Arlington"
+    }
+  },
+  {
+    "model": "flight.designbureau",
+    "pk": 3,
+    "fields": {
+      "name": "Embraer",
+      "headquarter": "São José dos Campos"
+    }
+  },
+  {
+    "model": "flight.designbureau",
+    "pk": 4,
+    "fields": {
+      "name": "Antonov",
+      "headquarter": "Kyiv"
+    }
+  },
+  {
+    "model": "flight.designbureau",
+    "pk": 5,
+    "fields": {
+      "name": "Cessna",
+      "headquarter": "Wichita"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 1,
+    "fields": {
+      "departure_airport": "Dubai",
+      "arrival_airport": "Antananarivo",
+      "duration": "29700000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 2,
+    "fields": {
+      "departure_airport": "Dubai",
+      "arrival_airport": "Sydney",
+      "duration": "41400000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 3,
+    "fields": {
+      "departure_airport": "Dubai",
+      "arrival_airport": "Washington",
+      "duration": "45600000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 4,
+    "fields": {
+      "departure_airport": "Antananarivo",
+      "arrival_airport": "Jeddah",
+      "duration": "21000000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 5,
+    "fields": {
+      "departure_airport": "Jeddah",
+      "arrival_airport": "Dubai",
+      "duration": "4800000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 6,
+    "fields": {
+      "departure_airport": "Jeddah",
+      "arrival_airport": "Sydney",
+      "duration": "47400000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 7,
+    "fields": {
+      "departure_airport": "Sydney",
+      "arrival_airport": "Dubai",
+      "duration": "39000000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 8,
+    "fields": {
+      "departure_airport": "Sydney",
+      "arrival_airport": "Washington",
+      "duration": "54000000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 9,
+    "fields": {
+      "departure_airport": "Washington",
+      "arrival_airport": "Antananarivo",
+      "duration": "162000000000"
+    }
+  },
+  {
+    "model": "flight.route",
+    "pk": 10,
+    "fields": {
+      "departure_airport": "Washington",
+      "arrival_airport": "Jeddah",
+      "duration": "48300000000"
+    }
+  },
+  {
+    "model": "flight.aircraft",
+    "pk": 1,
+    "fields": {
+      "type": "A310",
+      "age": 11,
+      "wake_turbulence_category": "M",
+      "design_bureau": 1
+    }
+  },
+  {
+    "model": "flight.aircraft",
+    "pk": 2,
+    "fields": {
+      "type": "B777",
+      "age": 16,
+      "wake_turbulence_category": "H",
+      "design_bureau": 2
+    }
+  },
+  {
+    "model": "flight.aircraft",
+    "pk": 3,
+    "fields": {
+      "type": "An26",
+      "age": 45,
+      "wake_turbulence_category": "M",
+      "design_bureau": 4
+    }
+  },
+  {
+    "model": "flight.aircraft",
+    "pk": 4,
+    "fields": {
+      "type": "C56X",
+      "age": 4,
+      "wake_turbulence_category": "L",
+      "design_bureau": 5
+    }
+  },
+  {
+    "model": "flight.aircraft",
+    "pk": 5,
+    "fields": {
+      "type": "E175",
+      "age": 1,
+      "wake_turbulence_category": "M",
+      "design_bureau": 3
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$f39UXeAQEbCCFKo5yjbAhO$MkMWwS/d0UZqWvQGjL5ynLmINi7RIwvbgVbeCxgQm5k=",
+      "last_login": "2023-01-24 13:06:59.064544",
+      "is_superuser": 1,
+      "username": "admin",
+      "email": "admin@admin.com",
+      "is_staff": 1,
+      "is_active": 1,
+      "date_joined": "2023-01-24 13:06:54.588771",
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "license_number": "00000:adm",
+      "position_id": null
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 2,
+    "fields": {
+      "password": "leo12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "leonard_hofstadter",
+      "email": "leo.h@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Leonard",
+      "last_name": "Hofstadter",
+      "license_number": "14589:leo",
+      "position_id": 3
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 3,
+    "fields": {
+      "password": "shel12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "sheldon_coop",
+      "email": "shel.c@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Sheldon",
+      "last_name": "Cooper",
+      "license_number": "58762:shel",
+      "position_id": 2
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 4,
+    "fields": {
+      "password": "pen12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "penny_teller",
+      "email": "pen.t@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Penny",
+      "last_name": "Teller",
+      "license_number": "21059:penn",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 5,
+    "fields": {
+      "password": "how12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "howard_wolowitz",
+      "email": "how.w@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Howard",
+      "last_name": "Wolowitz",
+      "license_number": "52103:how",
+      "position_id": 4
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 6,
+    "fields": {
+      "password": "raj12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "raj_koothrappali",
+      "email": "raj.k@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Rajesh",
+      "last_name": "Koothrappali",
+      "license_number": "20315:raj",
+      "position_id": 2
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 7,
+    "fields": {
+      "password": "ber12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "berny_rostenkowski",
+      "email": "ber.r@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Bernadette",
+      "last_name": "Rostenkowski",
+      "license_number": "52269:bern",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 8,
+    "fields": {
+      "password": "amy12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "amy_f_f",
+      "email": "amy.f@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Amy",
+      "last_name": "Farrah Fowler",
+      "license_number": "66258:amy",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 9,
+    "fields": {
+      "password": "stu12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "stuart_bloom",
+      "email": "stu.b@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Stuart",
+      "last_name": "Bloom",
+      "license_number": "51877:stu",
+      "position_id": 2
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 10,
+    "fields": {
+      "password": "les12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "leslie_winkle",
+      "email": "les.w@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Leslie",
+      "last_name": "Winkle",
+      "license_number": "55899:lesl",
+      "position_id": 3
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 11,
+    "fields": {
+      "password": "emi12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "emily_sweeney",
+      "email": "emi.s@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Emily",
+      "last_name": "Sweeney",
+      "license_number": "45221:emi",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 12,
+    "fields": {
+      "password": "bar12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "barry_kripke",
+      "email": "bar.k@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Barry",
+      "last_name": "Kripke",
+      "license_number": "22158:barr",
+      "position_id": 4
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 13,
+    "fields": {
+      "password": "ber12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "bert_kibbler",
+      "email": "ber.k@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Bertram",
+      "last_name": "Kibbler ",
+      "license_number": "55214:berr",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 14,
+    "fields": {
+      "password": "bev12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "beverly_hofstadter",
+      "email": "bev.h@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Beverly",
+      "last_name": "Hofstadter",
+      "license_number": "77777:bev",
+      "position_id": 3
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 15,
+    "fields": {
+      "password": "ram12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "ramona_nowitzki",
+      "email": "ram.n@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Ramona",
+      "last_name": "Nowitzki",
+      "license_number": "52130:ram",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 16,
+    "fields": {
+      "password": "wil12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "wil_wheaton",
+      "email": "wil.w@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Wil",
+      "last_name": "Wheaton",
+      "license_number": "52139:wil",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 17,
+    "fields": {
+      "password": "zac12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "zack_johnson ",
+      "email": "zac.j@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Zack",
+      "last_name": "Johnson",
+      "license_number": "21036:zac",
+      "position_id": 2
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 18,
+    "fields": {
+      "password": "den12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "denise_bloom",
+      "email": "den.b@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Denise",
+      "last_name": "Bloom",
+      "license_number": "87665:den",
+      "position_id": 1
+    }
+  },
+  {
+    "model": "flight.crewmember",
+    "pk": 19,
+    "fields": {
+      "password": "ste12345",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "stephen_hawking",
+      "email": "ste.h@itravel.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2023-01-20 10:00:00",
+      "first_name": "Stephen",
+      "last_name": "Hawking",
+      "license_number": "11111:stev",
+      "position_id": 3
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 1,
+    "fields": {
+      "departure": "2023-03-07 14:30:00",
+      "is_delayed": 0,
+      "route_id": 1,
+      "aircraft_id": 1,
+      "number": "100",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 2,
+    "fields": {
+      "departure": "2023-03-08 20:10:00",
+      "is_delayed": 0,
+      "route_id": 4,
+      "aircraft_id": 1,
+      "number": "101",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 3,
+    "fields": {
+      "departure": "2023-03-09 12:00:00",
+      "is_delayed": 0,
+      "route_id": 5,
+      "aircraft_id": 1,
+      "number": "102",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 4,
+    "fields": {
+      "departure": "2023-03-10 10:15:00",
+      "is_delayed": 0,
+      "route_id": 2,
+      "aircraft_id": 2,
+      "number": "216",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 5,
+    "fields": {
+      "departure": "2023-03-10 14:15:00",
+      "is_delayed": 0,
+      "route_id": 8,
+      "aircraft_id": 2,
+      "number": "217",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 6,
+    "fields": {
+      "departure": "2023-03-12 07:25:00",
+      "is_delayed": 0,
+      "route_id": 9,
+      "aircraft_id": 2,
+      "number": "218",
+      "crew": [
+        17,
+        19,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 7,
+    "fields": {
+      "departure": "2023-03-10 15:40:00",
+      "is_delayed": 0,
+      "route_id": 2,
+      "aircraft_id": 1,
+      "number": "116",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 8,
+    "fields": {
+      "departure": "2023-03-11 09:40:00",
+      "is_delayed": 0,
+      "route_id": 8,
+      "aircraft_id": 1,
+      "number": "117",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 9,
+    "fields": {
+      "departure": "2023-03-06 08:50:00",
+      "is_delayed": 0,
+      "route_id": 5,
+      "aircraft_id": 2,
+      "number": "200",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 10,
+    "fields": {
+      "departure": "2023-03-07 11:25:00",
+      "is_delayed": 0,
+      "route_id": 3,
+      "aircraft_id": 2,
+      "number": "201",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 11,
+    "fields": {
+      "departure": "2023-03-08 06:15:00",
+      "is_delayed": 0,
+      "route_id": 10,
+      "aircraft_id": 2,
+      "number": "202",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 12,
+    "fields": {
+      "departure": "2023-03-08 11:40:00",
+      "is_delayed": 0,
+      "route_id": 5,
+      "aircraft_id": 2,
+      "number": "203",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 13,
+    "fields": {
+      "departure": "2023-03-12 13:30:00",
+      "is_delayed": 0,
+      "route_id": 10,
+      "aircraft_id": 1,
+      "number": "118",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 14,
+    "fields": {
+      "departure": "2023-03-09 11:10:00",
+      "is_delayed": 0,
+      "route_id": 7,
+      "aircraft_id": 4,
+      "number": "315",
+      "crew": [
+        17,
+        19,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 15,
+    "fields": {
+      "departure": "2023-03-10 07:35:00",
+      "is_delayed": 0,
+      "route_id": 2,
+      "aircraft_id": 4,
+      "number": "316",
+      "crew": [
+        17,
+        19,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 16,
+    "fields": {
+      "departure": "2023-03-10 22:30:00",
+      "is_delayed": 0,
+      "route_id": 8,
+      "aircraft_id": 4,
+      "number": "442",
+      "crew": [
+        11,
+        18,
+        17,
+        19,
+        12
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 17,
+    "fields": {
+      "departure": "2023-03-10 14:30:00",
+      "is_delayed": 0,
+      "route_id": 9,
+      "aircraft_id": 4,
+      "number": "443",
+      "crew": [
+        11,
+        18,
+        17,
+        19,
+        12
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 18,
+    "fields": {
+      "departure": "2023-03-11 12:50:00",
+      "is_delayed": 0,
+      "route_id": 4,
+      "aircraft_id": 4,
+      "number": "444",
+      "crew": [
+        11,
+        18,
+        17,
+        19,
+        12
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 19,
+    "fields": {
+      "departure": "2023-03-07 08:00:00",
+      "is_delayed": 0,
+      "route_id": 7,
+      "aircraft_id": 3,
+      "number": "315",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 20,
+    "fields": {
+      "departure": "2023-03-08 11:25:00",
+      "is_delayed": 0,
+      "route_id": 1,
+      "aircraft_id": 3,
+      "number": "316",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 21,
+    "fields": {
+      "departure": "2023-03-09 16:05:00",
+      "is_delayed": 0,
+      "route_id": 4,
+      "aircraft_id": 3,
+      "number": "668",
+      "crew": [
+        11,
+        18,
+        17,
+        19,
+        12
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 22,
+    "fields": {
+      "departure": "2023-03-10 17:20:00",
+      "is_delayed": 0,
+      "route_id": 6,
+      "aircraft_id": 3,
+      "number": "669",
+      "crew": [
+        11,
+        18,
+        17,
+        19,
+        12
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 23,
+    "fields": {
+      "departure": "2023-03-11 11:00:00",
+      "is_delayed": 0,
+      "route_id": 8,
+      "aircraft_id": 3,
+      "number": "952",
+      "crew": [
+        17,
+        19,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 24,
+    "fields": {
+      "departure": "2023-03-12 04:10:00",
+      "is_delayed": 0,
+      "route_id": 10,
+      "aircraft_id": 3,
+      "number": "335",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 25,
+    "fields": {
+      "departure": "2023-01-12 20:50:00",
+      "is_delayed": 0,
+      "route_id": 5,
+      "aircraft_id": 3,
+      "number": "200",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 26,
+    "fields": {
+      "departure": "2023-03-13 14:45:00",
+      "is_delayed": 0,
+      "route_id": 3,
+      "aircraft_id": 3,
+      "number": "201",
+      "crew": [
+        4,
+        13,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 27,
+    "fields": {
+      "departure": "2023-03-09 10:10:00",
+      "is_delayed": 0,
+      "route_id": 4,
+      "aircraft_id": 5,
+      "number": "755",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 28,
+    "fields": {
+      "departure": "2023-03-10 14:00:00",
+      "is_delayed": 0,
+      "route_id": 6,
+      "aircraft_id": 5,
+      "number": "756",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 29,
+    "fields": {
+      "departure": "2023-03-11 08:55:00",
+      "is_delayed": 0,
+      "route_id": 7,
+      "aircraft_id": 5,
+      "number": "757",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 30,
+    "fields": {
+      "departure": "2023-03-12 17:00:00",
+      "is_delayed": 0,
+      "route_id": 1,
+      "aircraft_id": 5,
+      "number": "758",
+      "crew": [
+        8,
+        16,
+        9,
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 31,
+    "fields": {
+      "departure": "2023-03-13 15:35:00",
+      "is_delayed": 0,
+      "route_id": 4,
+      "aircraft_id": 5,
+      "number": "928",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 32,
+    "fields": {
+      "departure": "2023-03-13 23:55:00",
+      "is_delayed": 0,
+      "route_id": 5,
+      "aircraft_id": 5,
+      "number": "929",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 33,
+    "fields": {
+      "departure": "2023-03-14 04:40:00",
+      "is_delayed": 0,
+      "route_id": 3,
+      "aircraft_id": 5,
+      "number": "930",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "flight.flight",
+    "pk": 34,
+    "fields": {
+      "departure": "2023-03-14 21:40:00",
+      "is_delayed": 0,
+      "route_id": 9,
+      "aircraft_id": 5,
+      "number": "931",
+      "crew": [
+        7,
+        15,
+        6,
+        10
+      ]
+    }
+  }
+]

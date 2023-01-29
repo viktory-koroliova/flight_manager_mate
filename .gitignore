@@ -1,2 +1,4 @@
 .idea
 venvt
+**__pycache__
+db.sqlite3

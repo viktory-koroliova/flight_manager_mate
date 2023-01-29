@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="custom-margin">
+  {% if position_list %}
+    <h1>
+      Our crew is professional on any position:
+      <a href="{% url 'flight:position-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+        Open new position
+      </a>
+    </h1>
+    <table class="table">
+      <tr>
+        <th>Position</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for position in position_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:position-detail' pk=position.id%}">{{ position.title }}</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:position-update' pk=position.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:position-delete' pk=position.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  </div>
+
+{% endblock %}

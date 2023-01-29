@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="custom-margin">
+  <h1>
+    Our fleet
+    <a href="{% url 'flight:aircraft-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+      Create
+    </a>
+  </h1>
+
+{% if aircraft_list %}
+
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Aircraft list</h6>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Design bureau</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Age</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Wake turbulence category</th>
+                    <th class="text-secondary opacity-7">{# Update #}</th>
+                    <th class="text-secondary opacity-7">{# Delete #}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for aircraft in aircraft_list %}
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="{% static 'images/aircraft.png' %}" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                          <a href="{% url 'flight:aircraft-detail' pk=aircraft.id%}">{{ aircraft.type }}</a>
+                          <p class="acr-description text-xs text-secondary mb-0">The best aircraft in the world</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">{{ aircraft.design_bureau.name }}</p>
+                      <p class="text-xs text-secondary mb-0">Based in {{ aircraft.design_bureau.headquarter }}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{ aircraft.age }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{ aircraft.wake_turbulence_category }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <a href="{% url 'flight:aircraft-update' pk=aircraft.id %}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        Edit
+                      </a>
+                    </td>
+                    <td class="align-middle">
+                      <a href="{% url 'flight:aircraft-delete' pk=aircraft.id %}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        Delete
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <p>Temporary empty here</p>
+  {% endif %}
+  </div>
+  </div>
+{% endblock %}

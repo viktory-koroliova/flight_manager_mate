@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="custom-margin">
+  {% if position.crew.all%}
+    <h1>Our crew as {{ position.title }}</h1><br>
+
+    <table class="table">
+      <tr>
+        <th>Full name</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for crew in position.crew.all %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:crew-detail' pk=crew.id%}">{{ crew.first_name }} {{ crew.last_name }}</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:crew-update' pk=crew.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:crew-delete' pk=crew.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% endif %}
+  </div>
+
+{% endblock %}

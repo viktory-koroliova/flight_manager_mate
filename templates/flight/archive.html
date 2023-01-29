@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  	<div id="page-content">
+
+		<div class="box-content">
+			<div class="container">
+				<!-----------------Content-------------------->
+				<article>
+					<div class="wrap-post"><!--Start Box-->
+						<div class="entry-header">
+							<h2 class="entry-title"><a href="{% url 'flight:article' %}">HOW WE STARTED: THE STORY OF OUR SUCCESS</a></h2>
+							<span class="entry-meta">
+								<ul class="list-inline link">
+									<li>By <a href="#">BUSINESS</a></li>
+									<li><a href="#">January, 20 2023</a></li>
+									<li><a href="#">0 comments</a></li>
+								</ul>
+							</span>
+						</div>
+						<div class="post-thumbnail-wrap">
+							<div class="portfolio-box">
+								<img src="{% static 'images/1.jpg' %}" class="img-responsive" alt="">
+							</div>
+						</div>
+						<div class="entry-content">
+							<span class="tags-links">
+								<a href="#" rel="tag">Aviation</a>
+								<a href="#" rel="tag">Technology</a>
+								<a href="#" rel="tag">Professionalism</a>
+								<a href="#" rel="tag">Modern</a>
+								<a href="#" rel="tag">Integrity</a>
+								<a href="#" rel="tag">History</a>
+							</span>
+							<p>It was established as an alternative to Ukraine Airlines - a remnant of the Soviet Era in which each country had an operating airline under financial and commercial control of Aeroflot's main office in Moscow until the Soviet Union broke up and the airliners on the ground at each airport became the property of the state in...</p>
+							<a class="btn btn-skin" href="{% url 'flight:article' %}">Read More</a>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="wrap-post"><!--Start Box-->
+						<div class="entry-header">
+							<h2 class="entry-title"><a href="{% url 'flight:article' %}">HOW WE STARTED: THE STORY OF OUR SUCCESS</a></h2>
+							<span class="entry-meta">
+								<ul class="list-inline link">
+									<li>By <a href="#">BUSINESS</a></li>
+									<li><a href="#">January, 20 2023</a></li>
+									<li><a href="#">0 comments</a></li>
+								</ul>
+							</span>
+						</div>
+						<div class="post-thumbnail-wrap">
+							<div class="portfolio-box">
+								<img src="{% static 'images/1.jpg' %}" class="img-responsive" alt="">
+							</div>
+						</div>
+						<div class="entry-content">
+							<span class="tags-links">
+								<a href="#" rel="tag">Aviation</a>
+								<a href="#" rel="tag">Technology</a>
+								<a href="#" rel="tag">Professionalism</a>
+								<a href="#" rel="tag">Modern</a>
+								<a href="#" rel="tag">Integrity</a>
+								<a href="#" rel="tag">History</a>
+							</span>
+							<p>It was established as an alternative to Ukraine Airlines - a remnant of the Soviet Era in which each country had an operating airline under financial and commercial control of Aeroflot's main office in Moscow until the Soviet Union broke up and the airliners on the ground at each airport became the property of the state in...</p>
+							<a class="btn btn-skin" href="{% url 'flight:article' %}">Read More</a>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="wrap-post"><!--Start Box-->
+						<div class="entry-header">
+							<h2 class="entry-title"><a href="{% url 'flight:article' %}">HOW WE STARTED: THE STORY OF OUR SUCCESS</a></h2>
+							<span class="entry-meta">
+								<ul class="list-inline link">
+									<li>By <a href="#">BUSINESS</a></li>
+									<li><a href="#">January, 20 2023</a></li>
+									<li><a href="#">0 comments</a></li>
+								</ul>
+							</span>
+						</div>
+						<div class="post-thumbnail-wrap">
+							<div class="portfolio-box">
+								<img src="{% static 'images/1.jpg' %}" class="img-responsive" alt="">
+							</div>
+						</div>
+						<div class="entry-content">
+							<span class="tags-links">
+								<a href="#" rel="tag">Aviation</a>
+								<a href="#" rel="tag">Technology</a>
+								<a href="#" rel="tag">Professionalism</a>
+								<a href="#" rel="tag">Modern</a>
+								<a href="#" rel="tag">Integrity</a>
+								<a href="#" rel="tag">History</a>
+							</span>
+							<p>It was established as an alternative to Ukraine Airlines - a remnant of the Soviet Era in which each country had an operating airline under financial and commercial control of Aeroflot's main office in Moscow until the Soviet Union broke up and the airliners on the ground at each airport became the property of the state in...</p>
+							<a class="btn btn-skin" href="{% url 'flight:article' %}">Read More</a>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- JS -->
+	<script src="js/bootstrap.min.js"></script>
+
+
+	<script>
+		$(function() {
+			$('#menu-wrapper').height($("#menu").height());
+
+			$('#menu').affix({
+				offset: { top: $('#menu').offset().top }
+			});
+		});
+	</script>
+{% endblock %}

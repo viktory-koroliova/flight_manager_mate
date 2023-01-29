@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="custom-margin">
+  <h1>
+    Our crew
+    <a href="{% url 'flight:crew-create' %}" class="btn btn-success" style="margin-left: 20px">
+      Add new
+    </a>
+  </h1>
+
+  <form class="custom-form" action=""method="get">
+    {{ search_form|crispy }}
+  </form>
+
+  {% if crewmember_list %}
+
+    <table class="table">
+      <tr>
+        <th>Full name</th>
+        <th>Position</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for crew in crewmember_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:crew-detail' pk=crew.id%}">{{ crew.first_name }} {{ crew.last_name }}</a>
+          </td>
+          <td>{{ crew.position }}</td>
+          <td>
+            <a href="{% url 'flight:crew-update' pk=crew.id %}" class="btn btn-secondary">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:crew-delete' pk=crew.id %}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is no one hired yet.</p>
+  {% endif %}
+  </div>
+
+{% endblock %}

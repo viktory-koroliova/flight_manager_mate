@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="custom-margin">
+  <h1>
+    Our FROMs and TOs
+    <a href="{% url 'flight:route-create' %}" class="btn btn-success link-to-page" style="margin-left: 20px">
+      Add new route
+    </a>
+  </h1>
+  <br>
+  <form action=""method="get">
+    {{ search_form|crispy }}
+  </form>
+
+  {% if route_list %}
+
+    <table class="table">
+      <tr>
+        <th>Itinerary</th>
+        <th>Duration</th>
+        <th>{# Update #}</th>
+        <th>{# Delete #}</th>
+      </tr>
+
+      {% for route in route_list %}
+        <tr>
+          <td>
+            <a href="{% url 'flight:route-detail' pk=route.id%}">{{ route.departure_airport }} - {{ route.arrival_airport }}</a>
+          </td>
+          <td>{{ route.duration }}</td>
+          <td>
+            <a href="{% url 'flight:route-update' pk=route.id %}" class="btn btn-secondary link-to-page">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'flight:route-delete' pk=route.id %}" class="btn btn-danger link-to-page">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>We don't have any flight yet.</p>
+  {% endif %}
+  </div>
+
+{% endblock %}
