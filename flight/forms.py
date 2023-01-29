@@ -6,15 +6,15 @@ from django.core.validators import RegexValidator, MaxLengthValidator
 from flight.models import CrewMember, Flight
 
 
-def validate_license():
+def validate_license() -> forms.CharField:
     license_number = forms.CharField(
         validators=[
             RegexValidator(
                 r"[0-9]{5}:[a-zA-Z]{3}",
                 "Please ensure the license number format is 00000:XXX,"
-                "where 0 is a digit and X is a letter"
+                "where 0 is a digit and X is a letter",
             ),
-            MaxLengthValidator(9, "License number should be 9 characters max")
+            MaxLengthValidator(9, "License number should be 9 characters max"),
         ]
     )
     return license_number
@@ -45,7 +45,7 @@ class CrewMemberSearchForm(forms.Form):
         max_length=255,
         required=False,
         label=False,
-        widget=forms.TextInput(attrs={"placeholder": "Search by last name"})
+        widget=forms.TextInput(attrs={"placeholder": "Search by last name"}),
     )
 
 
@@ -67,7 +67,9 @@ class FlightSearchForm(forms.Form):
         max_length=255,
         required=False,
         label=False,
-        widget=forms.TextInput(attrs={"placeholder": "Search by flight number"})
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by flight number"}
+        ),
     )
 
 
@@ -76,5 +78,7 @@ class RouteSearchForm(forms.Form):
         max_length=255,
         required=False,
         label=False,
-        widget=forms.TextInput(attrs={"placeholder": "Search by departure airport"})
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by departure airport"}
+        ),
     )

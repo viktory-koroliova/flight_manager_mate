@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from flight.models import CrewMember, Position, DesignBureau, Aircraft, Route, Flight
+from flight.models import (
+    CrewMember,
+    Position,
+    DesignBureau,
+    Aircraft,
+    Route,
+    Flight
+)
 
 
 @admin.register(CrewMember)
@@ -30,7 +37,10 @@ class AdminCrewMember(UserAdmin):
 
 @admin.register(DesignBureau)
 class AdminDesignBureau(admin.ModelAdmin):
-    list_display = ("name", "headquarter", )
+    list_display = (
+        "name",
+        "headquarter",
+    )
 
 
 @admin.register(Aircraft)

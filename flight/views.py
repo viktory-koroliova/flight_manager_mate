@@ -1,11 +1,19 @@
+from typing import Any
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from flight.forms import CrewMemberCreationForm, CrewMemberUpdateForm, FlightForm, FlightSearchForm, \
-    CrewMemberSearchForm, RouteSearchForm
+from flight.forms import (
+    CrewMemberCreationForm,
+    CrewMemberUpdateForm,
+    FlightForm,
+    FlightSearchForm,
+    CrewMemberSearchForm,
+    RouteSearchForm,
+)
 from flight.models import (
     Aircraft,
     CrewMember,
@@ -16,12 +24,11 @@ from flight.models import (
 )
 
 
-def index(request):
+def index(request: Any) -> render:
     context = {
         "aircraft": Aircraft.objects.all().values("type"),
         "crew": CrewMember.objects.all().values("username"),
         "routes": Route.objects.all().values("departure_airport"),
-
     }
     return render(request, "flight/index.html", context=context)
 
@@ -83,7 +90,12 @@ class CrewMemberListView(LoginRequiredMixin, generic.ListView):
     template_name = "flight/crew_list.html"
     paginate_by = 5
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(
+            self,
+            *,
+            object_list: Any = None,
+            **kwargs: Any
+    ) -> dict:
         context = super(CrewMemberListView, self).get_context_data(**kwargs)
         last_name = self.request.GET.get("last_name", "")
         context["search_form"] = CrewMemberSearchForm(
@@ -91,12 +103,14 @@ class CrewMemberListView(LoginRequiredMixin, generic.ListView):
         )
         return context
 
-    def get_queryset(self):
+    def get_queryset(self) -> Any:
         queryset = CrewMember.objects.prefetch_related("flights")
         form = CrewMemberSearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(last_name__icontains=form.cleaned_data["last_name"])
+            return queryset.filter(
+                last_name__icontains=form.cleaned_data["last_name"]
+            )
         return queryset
 
 
@@ -156,7 +170,12 @@ class RouteListView(LoginRequiredMixin, generic.ListView):
     model = Route
     paginate_by = 5
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(
+            self,
+            *,
+            object_list: Any = None,
+            **kwargs: Any
+    ) -> dict:
         context = super(RouteListView, self).get_context_data(**kwargs)
         departure_airport = self.request.GET.get("departure_airport", "")
         context["search_form"] = RouteSearchForm(
@@ -164,11 +183,14 @@ class RouteListView(LoginRequiredMixin, generic.ListView):
         )
         return context
 
-    def get_queryset(self):
+    def get_queryset(self) -> Any:
         queryset = Route.objects.all()
         form = RouteSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(departure_airport__icontains=form.cleaned_data["departure_airport"])
+            return queryset.filter(
+                departure_airport__icontains
+                =form.cleaned_data["departure_airport"]
+            )
         return queryset
 
 
@@ -197,20 +219,25 @@ class FlightListView(LoginRequiredMixin, generic.ListView):
     model = Flight
     paginate_by = 5
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(
+            self,
+            *,
+            object_list: Any = None,
+            **kwargs: Any
+    ) -> dict:
         context = super(FlightListView, self).get_context_data(**kwargs)
         number = self.request.GET.get("number", "")
-        context["search_form"] = FlightSearchForm(
-            initial={"number": number}
-        )
+        context["search_form"] = FlightSearchForm(initial={"number": number})
         return context
 
-    def get_queryset(self):
+    def get_queryset(self) -> Any:
         queryset = Flight.objects.select_related("aircraft")
         form = FlightSearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(number__icontains=form.cleaned_data["number"])
+            return queryset.filter(
+                number__icontains=form.cleaned_data["number"]
+            )
         return queryset
 
 
@@ -235,14 +262,14 @@ class FlightDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("flight:flight-list")
 
 
-def archive(request):
+def archive(request: Any) -> render:
     return render(request, "flight/archive.html")
 
 
-def contact(request):
+def contact(request: Any) -> render:
     return render(request, "flight/contact.html")
 
 
 @login_required
-def article(request):
+def article(request: Any) -> render:
     return render(request, "flight/article.html")
