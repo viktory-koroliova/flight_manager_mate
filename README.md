@@ -1,4 +1,4 @@
-﻿# iTravel - Flight manager you need.
+# iTravel - Flight manager you need.
 
 
 Imagine that you are a flight manager for an airline. Your company has its own fleet and crew, as well as a list of routes to frequent and popular destinations. 

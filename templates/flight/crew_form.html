@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
+{% block title %}
+  <title>iTravel | {{ object|yesno:"Update,Create" }} crew</title>
+{% endblock %}
+
 {% block content %}
   <div class="custom-margin">
   <h1>{{ object|yesno:"Update,Create" }} crew member</h1>
