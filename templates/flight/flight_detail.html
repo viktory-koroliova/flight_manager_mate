@@ -34,6 +34,10 @@
       <td>{{ flight.route.duration }}</td>
     </tr>
   </table>
+
+  {% if flight.is_delayed %}
+    <span style="color: red">Delayed</span>
+  {% endif %}
   <br>
 
   {% if flight.crew.all %}
