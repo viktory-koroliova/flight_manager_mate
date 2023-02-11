@@ -17,7 +17,7 @@ class DesignBureau(models.Model):
     headquarter = models.CharField(max_length=255)
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return self.name
 
     class Meta:
         ordering = ["name"]
@@ -83,9 +83,11 @@ class Flight(models.Model):
     is_delayed = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return f"Flight {self.number} " \
-               f"from {self.route.departure_airport} " \
-               f"to {self.route.arrival_airport}"
+        return (
+            f"Flight {self.number} "
+            f"from {self.route.departure_airport} "
+            f"to {self.route.arrival_airport}"
+        )
 
     class Meta:
         constraints = [
